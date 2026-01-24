@@ -1,5 +1,5 @@
 {
-  "name": "Node.js & Python Fix",
+  "name": "Node.js, Python & Live Server",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   
   "features": {
@@ -8,7 +8,8 @@
       "installYarnUsingApt": false 
     },
     "ghcr.io/devcontainers/features/python:1": {
-      "version": "latest"
+      "version": "latest",
+      "installTools": true
     }
   },
 
@@ -17,16 +18,19 @@
       "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "formulahendry.code-runner"
+        "formulahendry.code-runner",
+        "ritwickdey.LiveServer"
       ],
       "settings": {
         "code-runner.runInTerminal": true,
         "code-runner.executorMap": {
           "javascript": "node",
           "python": "python3"
-        }
+        },
+        "python.defaultInterpreterPath": "/usr/local/bin/python3"
       }
     }
   },
+  "postCreateCommand": "sudo ln -s /usr/bin/pip3 /usr/bin/pip || true && pip install --upgrade pip",
   "remoteUser": "vscode"
 }
