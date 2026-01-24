@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block title %}新規ユーザ登録{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="h1 m-3 font-weight-normal text-center">新規ユーザ登録</h1>
+        <form action="{% url 'account_signup' %}" method="post" novalidate>
+            {% bootstrap_form_errors form layout='inline' type='non_fields' %}
+            {% bootstrap_form form layout='inline' %}
+            {% csrf_token %}
+            <div class="d-grid mt-3">
+                <button type="submit" class="btn btn-primary">登録</button>
+            </div>
+        </form> 
+        <div class="my-3 text-center">OR</div>
+        <div class="text-center">
+            <a href="{% url 'account_login' %}" class="btn btn-success">ログイン</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
