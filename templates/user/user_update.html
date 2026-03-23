@@ -9,9 +9,9 @@
     <div class="col-md-6 offset-md-3">
         <h1 class="h1 m-3 fw-normal text-center">{{title}}</h1>
         <form action="{% url 'user:user_update' user.pk %}" method="post" novalidate>
-            {% bootstrap_form_errors form layout='inline' %}
-            {% bootstrap_form form layout='inline' %}
             {% csrf_token %}
+            {# {% bootstrap_form_errors form layout='inline' %} #}
+            {% bootstrap_form form layout='inline' %}
             <hr>
             <button class="btn btn-primary" type="submit">更新</button>
         </form>

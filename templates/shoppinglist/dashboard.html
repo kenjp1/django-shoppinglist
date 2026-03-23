@@ -21,7 +21,7 @@
                         <li>商品のカテゴリ</li>
                     </ul>
                     <div class="d-grid">
-                        <a href="" class="btn btn-success">一覧</a>
+                        <a href="{% url 'shoppinglist:category_list' %}" class="btn btn-success">一覧</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,8 @@
                         <li>ショッピングリストの商品</li>
                     </ul>
                     <div class="d-grid">
-                        <a href="" class="btn btn-success">一覧</a>
+                        <!-- 商品一覧のリンクを追加しました -->
+                        <a href="{% url 'shoppinglist:item_list' %}" class="btn btn-success">一覧</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +54,7 @@
                         <li>商品をまとめます</li>
                     </ul>
                     <div class="d-grid">
-                        <a href="" class="btn btn-success">一覧</a>
+                        <a href="{% url 'shoppinglist:shoppinglist_list' %}" class="btn btn-success">一覧</a>
                     </div>
                 </div>
             </div>

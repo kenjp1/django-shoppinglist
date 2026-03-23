@@ -185,12 +185,10 @@ AUTHENTICATION_BACKENDS = [
 
 # 認証に利用するサイト番号
 SITE_ID = 1
-# 認証に利用するフィールド
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-# ユーザ名は必須
-ACCOUNT_USERNAME_REQUIRED = True
-# メールは必須ではない
-ACCOUNT_EMAIL_REQUIRED = False
+# ログイン時に使う項目
+ACCOUNT_LOGIN_METHODS = {'username'}
+# 会員登録画面に表示する項目（* は入力必須）
+ACCOUNT_SIGNUP_FIELDS = ['email', 'username*', 'password1*', 'password2*']
 # メールの認証は行わない
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 # ログアウトはGETで実行
@@ -204,3 +202,6 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 # 利用するユーザモデル
 AUTH_USER_MODEL = 'user.CustomUser'
 # Django-allauth関連の設定ここまで
+
+# MariaDBで発生する「条件付きの重複禁止ルール」の警告を消す設定
+SILENCED_SYSTEM_CHECKS = ['models.W036']
